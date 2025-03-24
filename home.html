@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contry Info</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+   
+   
+   <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* scroll-behavior: smooth; */
+        }
+
+        body {
+            background-color: #1c0a51;
+        }
+
+
+      
+
+        .navbar {
+            background-color: #160742 !important;
+            position: sticky !important;
+            top: 0px !important;
+            opacity: 0.9 !important;
+            z-index: 5 !important;
+        }
+
+        .nav-link{
+            color: white !important;
+        }
+
+        .navbar-toggler,.navbar-toggler-icon{
+            color: white !important;
+            background-color: rgb(254, 254, 254) !important;
+        }
+
+
+
+
+        .nav {
+            display: flex;
+            padding: 10px;
+            align-items: center;
+            column-gap: 50px;
+            position: sticky;
+            top: 0px;
+            background-color: #160742;
+        }
+
+        .logo {
+            width:80px;
+            height: 80px;
+        }
+
+        ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        ul li {
+            list-style: none;
+            font-size: 20px;
+
+        }
+
+        ul li a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .userName {
+            display: flex;
+            margin-left: 100px;
+            column-gap: 80px;
+        }
+
+        .userlogo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 10px;
+        }
+
+        .userlogo i {
+            font-size: 25px;
+            color: white;
+        }
+
+        .log-user {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .userName button {
+            width: 120px;
+            height: 30px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(30, 102, 164);
+            color: white;
+        }
+
+        .userName button:active{
+            background-color: rgb(241, 244, 247);
+            color: black;
+        }
+
+
+        .title {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+
+        .title h1 {
+            font-size: 3rem;
+            color: white;
+            margin-top: -20px;
+        }
+
+
+
+
+        .info-list {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 40px;
+            align-items: center;
+        }
+
+
+        .unlist {
+            display: flex;
+            column-gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .unlist .list {
+            list-style: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            cursor: pointer;
+            color: white;
+        }
+
+        .li1 {
+            text-decoration: underline;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            align-items: center;
+            width: 100%;
+
+        }
+
+        .search-bar1 {
+            display: none;
+            justify-content: center;
+            margin-top: 50px;
+            align-items: center;
+            width: 100%;
+
+        }
+
+        .search-bar2 {
+            display: none;
+            justify-content: center;
+            margin-top: 50px;
+            align-items: center;
+            width: 100%;
+
+        }
+
+        .search-bar3 {
+            display: none;
+            justify-content: center;
+            margin-top: 50px;
+            align-items: center;
+            width: 100%;
+
+        }
+
+        /* form {
+            display: none;
+        } */
+
+        .form1 {
+            width: 500px;
+            border: 2px solid rgb(255, 255, 255);
+            height: 50px;
+            border-radius: 23px;
+            display: flex;
+            align-items: center;
+            /* filter: blur(1px); */
+        }
+
+        .search {
+            width: 400px;
+            border: none;
+            font-size: 20px;
+            margin-left: 10px;
+            background: transparent;
+            color: white;
+           
+
+        }
+
+        .search:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        ::placeholder {
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .btn1 {
+            width: 100px;
+            border-radius: 20px;
+            height: 43px;
+            margin-right: 3px;
+            border: none;
+            background-color: rgb(214, 224, 220);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+
+        .btn2 {
+            width: 100px;
+            border-radius: 20px;
+            height: 43px;
+            margin-right: 3px;
+            border: none;
+            background-color:  rgb(214, 224, 220);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .form2 {
+            width: 500px;
+            border: 2px solid white;
+            height: 50px;
+            border-radius: 23px;
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            width: 100%;
+            gap: 20px;
+            margin-top: 80px;
+            margin-bottom: 30px;
+        }
+
+       
+        #card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    width: 30%;
+    height: 350px;
+    box-shadow: 10px 10px 10px rgb(41, 40, 40);
+    border: 2px solid rgb(246, 241, 241);
+}
+
+.imgg {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    margin-top: 20px;
+    height: 75%;
+}
+
+#ptag1 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    #card {
+        width: 80%;
+    }
+
+    .imgg {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    #card {
+        width: 80%;
+    }
+
+    .imgg {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+        
+
+        #card1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 10px 10px 20px rgb(31, 31, 31);
+    border: 2px solid rgb(246, 241, 241);
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.acth2 {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.divcontainer {
+    margin-bottom: 30px;
+}
+
+#ptag {
+    font-size: 18px;
+    text-align: justify;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifk;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    #card1 {
+        width: 80%;
+    }
+}
+
+@media (max-width: 576px) {
+    #card1 {
+        width: 90%;
+    }
+}
+
+
+
+
+       
+
+        .tables {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: -10px;
+        }
+
+        .tables1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: -40px;
+        }
+        .td1{
+            width: 300px;
+            /* color: white; */
+
+        }
+        
+
+        .tables h3 {
+            margin-top: 30px;
+            font-size: 25px;
+            color: white;
+        }
+
+
+        table {
+            margin-top: 20px;
+        }
+
+        td,
+        th {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            font-size: 20px;
+            /* color: white; */
+        }
+        th{
+            background-color: rgb(45, 119, 164);
+            color: white;
+        }
+        td{
+            background-color: rgb(228, 237, 245);
+        }
+
+        h1{
+            color: white;
+        }
+
+        /* Media queries for smaller screens */
+@media (max-width: 768px) {
+    .td1 {
+        width: auto; /* Adjust as needed */
+    }
+
+    td,
+    th {
+        font-size: 16px; /* Adjust as needed */
+        padding: 8px; /* Adjust as needed */
+    }
+}
+
+/* Media queries for extra small screens */
+@media (max-width: 576px) {
+    .td1 {
+        width: auto; /* Adjust as needed */
+    }
+
+    td,
+    th {
+        font-size: 14px; /* Adjust as needed */
+        padding: 6px; /* Adjust as needed */
+    }
+}
+
+
+
+
+/* Media queries for screens between 300px and 650px */
+@media (max-width: 650px) {
+    .tables {
+        margin-top: -60px;
+        overflow-x: auto; /* Add horizontal scroll if needed */
+        display: block; /* Ensure the container takes up full width */
+    }
+
+    .tables h3 {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+
+    td,
+    th {
+        font-size: 14px;
+        padding: 6px;
+    }
+}
+
+
+
+
+
+
+        @media screen and (min-width:300px) and (max-width:1440px) {
+            .nav {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width:1441px) {
+            .navbar {
+                display: none !important;
+            }
+        }
+
+
+        /* Media queries for smaller screens */
+@media (max-width: 768px) {
+    .unlist {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .unlist .list {
+        text-align: center;
+    }
+}
+
+
+/* Media queries for smaller screens */
+@media (max-width: 768px) {
+    .form1,
+    .form2 {
+        width: 90%;
+        max-width: 400px; /* Adjust as needed */
+    }
+
+    .search {
+        width: calc(100% - 10px); /* Adjust as needed */
+    }
+
+    .btn1,
+    .btn2 {
+        width: 30%; /* Adjust as needed */
+    }
+}
+
+/* Media queries for extra small screens */
+@media (max-width: 576px) {
+    .form1,
+    .form2 {
+        width: 90%;
+        max-width: 300px; /* Adjust as needed */
+    }
+
+    .search {
+        width: calc(100% - 30px); /* Adjust as needed */
+    }
+
+    .btn1,
+    .btn2 {
+        width: 30%; /* Adjust as needed */
+    }
+}
+
+
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"> <img class="logo" src="./images/travellogo.jpeg" alt=""></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#">Services</a>
+                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="#">Packages</a>
+                    <a class="nav-link" href="#">Country info</a>
+                    <a class="nav-link" href="#">Book</a>
+                    <a class="nav-link" href="#">Reviews</a>
+                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#">Admin Login</a>
+                    <a class="nav-link" href="#">
+                        <div class="userlogo"><i class="fa-regular fa-circle-user"></i> <span
+                                class="log-user">Guest</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <nav class="nav">
+        <img class="logo" src="./images/travellogo.jpeg" alt="">
+        <ul>
+            <li><a href="./main.html#home">Home</a></li>
+            <li><a href="./main.html#service">Services</a></li>
+            <li><a href="./main.html#about">About</a></li>
+            <li><a href="./main.html#package">Packages</a></li>
+            <li><a href="./home.html">Country info</a></li>
+            <li><a href="./main.html#book">Book</a></li>
+            <li><a href="./main.html#review">Reviews</a></li>
+            <li><a href="./main.html#contact">Contact</a></li>
+        </ul>
+
+        <div class="userName">
+            <div class="userlogo"><i class="fa-regular fa-circle-user"></i> <span class="log-user">Guest</span></div>
+            <button class="admin">Admin Login</button>
+        </div>
+    </nav>
+    </nav>
+
+  
+    <div class="title">
+        <h1>Where to?</h1>
+    </div>
+
+    <div class="info-list">
+        <ul class="unlist">
+            <li class="li1 list">Find an Embassy in Abroad</li>
+            <li class="list">Country Details</li>
+            <li class="list">Country Activities</li>
+            <li class="list">Brife info About A Country</li>
+        </ul>
+
+    </div>
+
+    <div class="search-bar">
+        <form action="">
+            <div class="form1">
+                <input type="search" class="search" placeholder="Country Name" required>
+            </div>
+
+            <div class="form2">
+                <input type="search" class="search" placeholder="where to ?" required>
+                <input class="btn1" type="submit" value="Search">
+            </div>
+        </form>
+    </div>
+
+
+    <div class="search-bar1">
+        <form action="">
+            <div class="form1">
+                <input type="search" class="search" placeholder="Country Name" required>
+                <input class="btn2" type="submit" value="Search">
+            </div>
+
+        </form>
+    </div>
+
+
+    <div class="search-bar2">
+        <form action="">
+            <div class="form1">
+                <input type="search" class="search" placeholder="Country Activities" required>
+                <input class="btn2" type="submit" value="Search">
+            </div>
+
+        </form>
+    </div>
+
+    <div class="search-bar3">
+        <form action="">
+            <div class="form1">
+                <input type="search" class="search" placeholder="About A Country" required>
+                <input class="btn2" type="submit" value="Search">
+            </div>
+
+        </form>
+    </div>
+
+
+    <div class="container">
+
+       
+
+
+    </div>
+
+
+    <script>
+
+        var data=window.localStorage.getItem("userinfo")
+        var user=JSON.parse(data)
+        if(data){
+            document.getElementsByClassName("log-user")[0].innerText=user[0]["name"]
+        }
+       
+
+
+
+        document.forms[0].addEventListener("submit", onSubmitFindEmbassy)
+
+        function onSubmitFindEmbassy(e) {
+            e.preventDefault();
+            document.querySelector('.container').innerHTML = '';
+            let n1=e.target[0].value
+            let name1=n1.replace(" ","%20")
+
+            let n2=e.target[1].value
+            let name2=n2.replace(" ","%20")
+            console.log(name1)
+            console.log(name2)
+
+            const url = `https://travel-info-api.p.rapidapi.com/find-embassy?source=${name1}&destination=${name2}`;
+
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '85c39f570bmsh6021967c3278783p1143c2jsnae41703e9b6f',
+                    'X-RapidAPI-Host': 'travel-info-api.p.rapidapi.com'
+                }
+            };
+
+            fetch(url, options).then((val) => {
+                return val.json();
+            }).then((val) => {
+
+                console.log(val)
+
+                var cont = document.getElementsByClassName("container")
+                var tables = document.createElement("div")
+                tables.setAttribute("class", "tables1")
+                cont[0].appendChild(tables)
+
+                var h1 = document.createElement("h1")
+                tables.appendChild(h1)
+                h1.innerText = "Embassy Details"
+
+                var table = document.createElement("table")
+                tables.appendChild(table)
+
+                var tr = document.createElement("tr")
+                table.appendChild(tr)
+                .setAttribute("class","td1")
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Sl.No"
+                th.setAttribute("class","td1")
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Address"
+                th.setAttribute("class","td1")
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Phone"
+                th.setAttribute("class","td1")
+
+                for(let i=0; i<val.data.length; i++){
+                 var tr = document.createElement("tr")
+                table.appendChild(tr)
+                tr.setAttribute("class","tr1")
+
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = i+1
+                td.setAttribute("class","td1")
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.data[i].address
+                td.setAttribute("class","td1")
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.data[i].phone
+                td.setAttribute("class","td1")
+                }
+
+                
+            })
+
+
+
+
+        }
+
+
+        function onSubmitCountryDetails(e) {
+            e.preventDefault();
+
+            document.querySelector('.container').innerHTML = '';
+
+            let n1=e.target[0].value
+            let name1=n1.replace(" ","%20")
+
+
+            const url = `https://travel-info-api.p.rapidapi.com/country-details?country=${name1}`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '85c39f570bmsh6021967c3278783p1143c2jsnae41703e9b6f',
+                    'X-RapidAPI-Host': 'travel-info-api.p.rapidapi.com'
+                }
+            };
+
+            fetch(url, options).then((val) => {
+                return val.json();
+            }).then((val) => {
+                console.log(val)
+                var cont = document.getElementsByClassName("container")
+                var tables = document.createElement("div")
+                tables.setAttribute("class", "tables")
+                cont[0].appendChild(tables)
+
+                var h1 = document.createElement("h1")
+                tables.appendChild(h1)
+                h1.innerText = "Country Details"
+
+                var table = document.createElement("table")
+                tables.appendChild(table)
+
+                var tr = document.createElement("tr")
+                table.appendChild(tr)
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Country Name"
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Continent"
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Capital"
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Government"
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Official Language"
+
+                var tr = document.createElement("tr")
+                table.appendChild(tr)
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.countryName
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.continent
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.capital
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.government
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.officialLanguages
+
+
+
+
+                var table = document.createElement("table")
+                tables.appendChild(table)
+
+                var tr = document.createElement("tr")
+                table.appendChild(tr)
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Population"
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Population Density Km2"
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Population Density Sqmi"
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Surface Area Km2"
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Surface Area Sqmi"
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Border Length"
+
+
+                var tr = document.createElement("tr")
+                table.appendChild(tr)
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.population
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.populationDensityKm2
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.populationDensitySqMi
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.surfaceAreaKm2
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.surfaceAreaSqMi
+
+                var td = document.createElement("td")
+                tr.appendChild(td)
+                td.innerText = val.borderLength
+
+
+
+
+                var h3 = document.createElement("h3")
+                tables.appendChild(h3)
+                h3.innerText = "Neighbor Countries List"
+
+                var table = document.createElement("table")
+                tables.appendChild(table)
+
+                var tr = document.createElement("tr")
+                table.appendChild(tr)
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Sl. NO"
+
+                var th = document.createElement("th")
+                tr.appendChild(th)
+                th.innerText = "Country Name"
+
+
+
+                for (let i = 0; i < val.neighborsList.length; i++) {
+                    var tr3 = document.createElement("tr")
+                    table.appendChild(tr3)
+
+                    var tdss = document.createElement("td")
+                    tr3.appendChild(tdss)
+                    tdss.innerText = i + 1
+
+                    var tdss = document.createElement("td")
+                    tr3.appendChild(tdss)
+                    tdss.innerText = val.neighborsList[i]
+
+                }
+
+            })
+
+
+        }
+
+
+        function onSubmitCountryActivities(e) {
+            e.preventDefault();
+            document.querySelector('.container').innerHTML = '';
+
+            let n1=e.target[0].value
+            let name1=n1.replace(" ","%20")
+
+            const url = `https://travel-info-api.p.rapidapi.com/country-activities?country=${name1}`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '85c39f570bmsh6021967c3278783p1143c2jsnae41703e9b6f',
+                    'X-RapidAPI-Host': 'travel-info-api.p.rapidapi.com'
+                }
+            };
+
+            fetch(url, options).then((val1) => {
+                return val1.json();
+            }).then((val1) => {
+                console.log(val1)
+
+                var container = document.getElementsByClassName("container")
+                for (let i = 0; i < val1.data.activities.length; i++) {
+
+                    var divcard = document.createElement("div")
+                    container[0].appendChild(divcard)
+                    divcard.setAttribute("id", "card1")
+
+                    var h2tag = document.createElement("h2")
+                    divcard.appendChild(h2tag)
+                    h2tag.setAttribute("class", "acth2")
+                    h2tag.innerText = val1.data.activities[i]["title"]
+
+                    var divcontainer=document.createElement("div")
+                    divcard.appendChild(divcontainer)
+                    divcontainer.setAttribute("class","divcontainer")
+
+
+                    var ptag1 = document.createElement("p")
+                    divcontainer.appendChild(ptag1)
+                    ptag1.innerText = val1.data.activities[i]["activity"]
+                    ptag1.setAttribute("id", "ptag")
+
+
+                }
+
+
+
+            })
+
+        }
+
+
+
+        function onSubmitBriefInfo(e) {
+            e.preventDefault();
+            document.querySelector('.container').innerHTML = '';
+
+            let n1=e.target[0].value
+            let name1=n1.replace(" ","%20")
+
+            const url = `https://travel-info-api.p.rapidapi.com/country?country=${name1}`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '85c39f570bmsh6021967c3278783p1143c2jsnae41703e9b6f',
+                    'X-RapidAPI-Host': 'travel-info-api.p.rapidapi.com'
+                }
+            };
+
+            fetch(url, options).then((val2) => {
+                return val2.json();
+            }).then((val2) => {
+                console.log(val2)
+
+                var container = document.getElementsByClassName("container")
+                for (let i = 0; i < val2.data.country_images.length; i++) {
+
+                    var divcard = document.createElement("div")
+                    container[0].appendChild(divcard)
+                    divcard.setAttribute("id", "card")
+
+                    var imgg = document.createElement("img")
+                    divcard.appendChild(imgg)
+                    imgg.setAttribute("class","imgg")
+                    imgg.setAttribute("src", val2.data.country_images[i]["imageUrl"])
+
+                    var ptag1 = document.createElement("p")
+                    divcard.appendChild(ptag1)
+                    ptag1.innerText = val2.data.country_images[i]["title"]
+                    ptag1.setAttribute("id", "ptag1")
+
+                }
+
+            })
+
+        }
+
+
+
+
+
+        var litag = document.getElementsByClassName("list")
+
+        litag[0].addEventListener("click", () => {
+
+            document.querySelector('.container').innerHTML = '';
+            
+            document.forms[0].removeEventListener("submit", onSubmitFindEmbassy);
+            document.forms[1].removeEventListener("submit", onSubmitCountryDetails);
+            document.forms[2].removeEventListener("submit", onSubmitCountryActivities);
+            document.forms[3].removeEventListener("submit", onSubmitBriefInfo);
+
+            litag[0].style.textDecoration = "underline"
+            litag[1].style.textDecoration = "none"
+            litag[2].style.textDecoration = "none"
+            litag[3].style.textDecoration = "none"
+
+            document.getElementsByClassName("search-bar")[0].style.display = "flex"
+            document.getElementsByClassName("search-bar1")[0].style.display = "none"
+            document.getElementsByClassName("search-bar2")[0].style.display = "none"
+            document.getElementsByClassName("search-bar3")[0].style.display = "none"
+
+
+            document.forms[0].addEventListener("submit", onSubmitFindEmbassy)
+
+
+        })
+
+
+
+
+
+        litag[1].addEventListener("click", () => {
+            document.querySelector('.container').innerHTML = '';
+
+            document.forms[0].removeEventListener("submit", onSubmitFindEmbassy);
+            document.forms[1].removeEventListener("submit", onSubmitCountryDetails);
+            document.forms[2].removeEventListener("submit", onSubmitCountryActivities);
+            document.forms[3].removeEventListener("submit", onSubmitBriefInfo);
+
+
+            litag[1].style.textDecoration = "underline"
+            litag[0].style.textDecoration = "none"
+            litag[2].style.textDecoration = "none"
+            litag[3].style.textDecoration = "none"
+
+            document.getElementsByClassName("search-bar")[0].style.display = "none"
+            document.getElementsByClassName("search-bar1")[0].style.display = "flex"
+            document.getElementsByClassName("search-bar2")[0].style.display = "none"
+            document.getElementsByClassName("search-bar3")[0].style.display = "none"
+
+
+
+            document.forms[1].addEventListener("submit", onSubmitCountryDetails)
+        })
+
+
+
+
+
+        litag[2].addEventListener("click", () => {
+            document.querySelector('.container').innerHTML = '';
+
+            document.forms[0].removeEventListener("submit", onSubmitFindEmbassy);
+            document.forms[1].removeEventListener("submit", onSubmitCountryDetails);
+            document.forms[2].removeEventListener("submit", onSubmitCountryActivities);
+            document.forms[3].removeEventListener("submit", onSubmitBriefInfo);
+
+            litag[0].style.textDecoration = "none"
+            litag[1].style.textDecoration = "none"
+            litag[2].style.textDecoration = "underline"
+            litag[3].style.textDecoration = "none"
+
+            document.getElementsByClassName("search-bar")[0].style.display = "none"
+            document.getElementsByClassName("search-bar2")[0].style.display = "flex"
+            document.getElementsByClassName("search-bar1")[0].style.display = "none"
+            document.getElementsByClassName("search-bar3")[0].style.display = "none"
+
+
+            document.forms[2].addEventListener("submit", onSubmitCountryActivities)
+        })
+
+
+
+
+
+        litag[3].addEventListener("click", () => {
+            document.querySelector('.container').innerHTML = '';
+
+            document.forms[0].removeEventListener("submit", onSubmitFindEmbassy);
+            document.forms[1].removeEventListener("submit", onSubmitCountryDetails);
+            document.forms[2].removeEventListener("submit", onSubmitCountryActivities);
+            document.forms[3].removeEventListener("submit", onSubmitBriefInfo);
+
+            litag[0].style.textDecoration = "none"
+            litag[1].style.textDecoration = "none"
+            litag[2].style.textDecoration = "none"
+            litag[3].style.textDecoration = "underline"
+
+            document.getElementsByClassName("search-bar")[0].style.display = "none"
+            document.getElementsByClassName("search-bar1")[0].style.display = "none"
+            document.getElementsByClassName("search-bar2")[0].style.display = "none"
+            document.getElementsByClassName("search-bar3")[0].style.display = "flex"
+
+
+            document.forms[3].addEventListener("submit", onSubmitBriefInfo)
+        })
+
+
+
+    </script>
+</body>
+
+</html>

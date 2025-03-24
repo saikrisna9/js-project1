@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+ body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+    }
+
+    .container {
+      background: linear-gradient(135deg, #ff7eb3, #ff758c);
+      padding: 25px 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      backdrop-filter: blur(12px);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      font-size: 2.2rem;
+      color: #fff;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    input:focus {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .submitbutton {
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(45deg, #ff577f, #ff8e72);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .submitbutton:hover {
+      background: linear-gradient(45deg, #ff8e72, #ff577f);
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffd1dc;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px 15px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      input {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+
+      .submitbutton {
+        padding: 12px;
+        font-size: 0.9rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+<div class="container">
+  <h1>Sign Up</h1>
+ 
+    <input type="text" placeholder="Name" id="signupName" required />
+    <input type="email" placeholder="Email" id="signupEmail" required />
+    <input
+      type="password"
+      placeholder="Password"
+      id="signupPassword"
+      required
+    />
+    <input
+      type="password"
+      placeholder="Confirm password"
+      id="signupconfirmpassword"
+      required
+    />
+    <div class="submitdiv">
+      <!-- <input type="submit" class="submitbutton" id="sign"></div> -->
+      <button class="submitbutton" id="sign">Signup</button>
+    </div>
+  
+  <p>
+    Already have an Account?
+    <a href="./index.html">Sign In</a>
+  </p>
+</div>
+<body>
+        
+      
+
+<script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+        // Your Firebase configuration
+        const firebaseConfi = {
+          apiKey: "AIzaSyA_f7Rs5uSSRT6fwVwjcAjSiK_DaLDbRi4",
+          authDomain: "tour-planner-52db8.firebaseapp.com",
+          projectId: "tour-planner-52db8",
+          storageBucket: "tour-planner-52db8.firebasestorage.app",
+          messagingSenderId: "562576093056",
+          appId: "1:562576093056:web:ee1c537ab572dfece01b65"
+        };
+
+
+
+        // Initialize Firebase
+        const ap = initializeApp(firebaseConfi);
+        const aut = getAuth(ap);
+        var btn1 = document.getElementById("sign")
+        btn1.addEventListener("click", signUp)
+
+        // Sign Up Function
+        function signUp() {
+           var name=document.getElementById('signupName').value;
+            var email = document.getElementById('signupEmail').value;
+            var password = document.getElementById('signupPassword').value;
+            var confirmpassword = document.getElementById('signupconfirmpassword').value
+           
+
+            if (password !== confirmpassword) {
+              alert("Passwords do not match!");
+              return;
+            }
+
+            createUserWithEmailAndPassword(aut,email,password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log("User signed up:", user);
+                    alert("Signup successful!");
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error("Signup error", errorCode, errorMessage);
+                    alert("Signup failed: ${errorMessage}");
+                });
+        }
+        // signUp("saitejast211.ys@gmail.com", "ram@1234")
+
+        // logIn("saitejast211.ys@gmail.com", "ram@1234")
+        // var btn2 = document.getElementById("btn2")
+
+        // btn2.addEventListener("click", logIn)
+        // // Login Function
+        // function logIn() {
+
+        //     var email = document.getElementById('loginEmail').value;
+        //     var password = document.getElementById('loginPassword').value
+        //     signInWithEmailAndPassword(auth, email, password)
+        //         .then((userCredential) => {
+        //             const user = userCredential.user;
+        //             console.log("User logged in:", user);
+        //             alert("Login successful!");
+        //         })
+        //         .catch((error) => {
+        //             const errorCode = error.code;
+        //             const errorMessage = error.message;
+        //             console.error("Login error", errorCode, errorMessage);
+        //             alert(Login failed: ${errorMessage});
+        //         });
+        // }
+
+        // Monitor Auth State
+        // onAuthStateChanged(auth, (user) => {
+        //     if (user) {
+        //         console.log("User is logged in:", user);
+        //     } else {
+        //         console.log("No user is logged in");
+        //     }
+        // });
+        </script>
+
+</body>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #1c0a51;
+        }
+        .container{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100vh;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 20px;
+
+
+        }
+        .box{
+            width: 250px;
+            /* height: 250px; */
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 15px;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+        }
+        button{
+            margin-bottom: 10px;
+            width: 100px;
+            height: 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            background-color: rgb(95, 119, 236);
+            color: white;
+            
+        }
+        button:active{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <img src="https://www.sellcell.com/blog/wp-content/uploads/2014/09/page-corporate-travel.png" alt="">
+            <h3>Booking Details</h3>
+            <button>view</button>
+        </div>
+        <div class="box">
+            <img src="https://cdn.dribbble.com/users/1067746/screenshots/6002017/complaint_4x.jpg?compress=1&resize=1000x750" alt="">
+            <h3>Complaints Details</h3>
+            <button>view</button>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementsByTagName("button")[0].addEventListener("click",()=>{
+            window.location.assign("./bookingdetails.html")
+        })
+
+        document.getElementsByTagName("button")[1].addEventListener("click",()=>{
+            window.location.assign("./complaints.html")
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookinng Details</title>
+
+    <style>
+/* Default styles */
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #1c0a51;
+}
+
+.box {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-right: 10px; /* Add margin to the right for smaller screens */
+}
+
+.box button {
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(146, 239, 207);
+    color: rgb(77, 64, 64);
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.box button:active {
+    background-color: rgb(188, 250, 152);
+    color: #1c0a51;
+}
+
+table {
+    width: 80%;
+    margin-top: 20px;
+}
+
+td, th {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+th {
+    background-color: rgb(45, 119, 164);
+    color: white;
+    padding: 10px;
+}
+
+td {
+    background-color: rgb(228, 237, 245);
+    padding: 10px;
+}
+
+h1 {
+    color: white;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    table {
+       
+        overflow-x: scroll; /* Allow horizontal scrolling */
+    }
+    th, td {
+        white-space: nowrap; /* Prevent text wrapping */
+    }
+
+    .box {
+        justify-content: center; /* Center the buttons */
+    }
+
+    .box button {
+        margin-right: 0; /* Remove margin for the buttons */
+        margin-bottom: 10px; /* Add margin at the bottom for spacing */
+    }
+}
+
+@media (max-width: 576px) {
+    table {
+        width: 100%;
+        overflow-x: auto; 
+    }
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <button class="back">Back</button>
+        <button class="logout">Logout</button>
+    </div>
+    <h1>Booking Details</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Mobile Number</th>
+            <th>Where</th>
+            <th>Members</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Member Info</th>
+        </tr>
+
+
+
+    </table>
+
+
+
+    <script>
+        document.getElementsByClassName("back")[0].addEventListener("click",()=>{
+            window.location.assign("./Adminpage.html")
+        })
+
+        document.getElementsByClassName("logout")[0].addEventListener("click",()=>{
+            window.location.assign("./main.html")
+        })
+
+
+
+
+        var booking=JSON.parse(localStorage.getItem("bookinginfo"));
+        console.log(booking)
+var table1=document.getElementsByTagName("table")
+
+        for(let i=0; i<booking.length; i++){
+            tr1=document.createElement("tr")
+            table1[0].appendChild(tr1)
+
+            td1=document.createElement("td")
+            tr1.appendChild(td1)
+            td1.innerText=booking[i].name
+
+            td1=document.createElement("td")
+            tr1.appendChild(td1)
+            td1.innerText=booking[i].mobile
+
+            td1=document.createElement("td")
+            tr1.appendChild(td1)
+            td1.innerText=booking[i].destination
+
+            td1=document.createElement("td")
+            tr1.appendChild(td1)
+            td1.innerText=booking[i].members
+
+            td1=document.createElement("td")
+            tr1.appendChild(td1)
+            td1.innerText=booking[i].startDate
+
+            td1=document.createElement("td")
+            tr1.appendChild(td1)
+            td1.innerText=booking[i].EndDate
+
+            td1=document.createElement("td")
+            tr1.appendChild(td1)
+            td1.innerText=booking[i].MemberInfo
+        }
+    </script>
+</body>
+</html>
